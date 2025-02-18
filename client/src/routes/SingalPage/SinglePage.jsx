@@ -1,15 +1,38 @@
 import Map from "../../components/map/Map";
 import Slider from "../../components/slider/Slider";
+import PropertyTabs from "../../components/Tab/Propertytab";
 import { singlePostData, userData } from "../../lib/dummydata";
 import "./SinglePage.scss";
 
 function SinglePage() {
+  const reviews = [
+    {
+      name: "Alice",
+      rating: 5,
+      comment: "Amazing place! Everything was perfect.",
+    },
+    {
+      name: "Bob",
+      rating: 4,
+      comment: "Very comfortable and clean. Would stay again.",
+    },
+    {
+      name: "Charlie",
+      rating: 3,
+      comment: "Decent experience, but could improve the amenities.",
+    },
+    {
+      name: "Diana",
+      rating: 4.5,
+      comment: "Great value for money. Highly recommended!",
+    },
+  ];
   return (
     <div className="singlePage">
       <div className="details">
         <div className="wrapper">
           <Slider images={singlePostData.images} />
-          <div className="info">
+          {/* <div className="info">
             <div className="top">
               <div className="post">
                 <h1>{singlePostData.title}</h1>
@@ -25,7 +48,12 @@ function SinglePage() {
               </div>
             </div>
             <div className="bottom">{singlePostData.description}</div>
-          </div>
+          </div> */}
+          <PropertyTabs
+            singlePostData={singlePostData}
+            reviews={reviews}
+            userData={userData}
+          />
         </div>
       </div>
       <div className="features">
