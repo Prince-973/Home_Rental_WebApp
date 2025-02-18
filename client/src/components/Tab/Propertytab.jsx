@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Box, Typography, Rating } from "@mui/material";
+import {
+  Tabs,
+  Tab,
+  Box,
+  Typography,
+  Rating,
+  TextField,
+  Button,
+} from "@mui/material";
 
-const PropertyTabs = ({ singlePostData, userData, reviews }) => {
+const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
   // Calculate overall rating
   const calculateOverallRating = () => {
@@ -15,6 +25,21 @@ const PropertyTabs = ({ singlePostData, userData, reviews }) => {
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);
+  };
+
+  const handleReviewSubmit = () => {
+    if (rating > 0 && comment.trim()) {
+      const newReview = {
+        name: userData.name, // Use the current user's name for the review
+        rating,
+        comment,
+      };
+      onAddReview(newReview); // Callback function to handle adding the new review
+      setRating(0); // Reset the rating
+      setComment(""); // Reset the comment
+    } else {
+      alert("Please provide a rating and comment.");
+    }
   };
 
   return (
@@ -84,6 +109,41 @@ const PropertyTabs = ({ singlePostData, userData, reviews }) => {
               <Typography>No reviews yet.</Typography>
             )}
           </div>
+
+          {/* Add New Review Form */}
+          <Box sx={{ mt: 3 }}>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              Add Your Review
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
+              {/* Star Rating */}
+              <Rating
+                value={rating}
+                onChange={(e, newValue) => setRating(newValue)}
+                precision={0.5}
+              />
+
+              {/* Textarea for Comment */}
+              <TextField
+                label="Write your comment"
+                variant="outlined"
+                multiline
+                rows={4}
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                sx={{ mt: 2 }}
+              />
+
+              {/* Submit Button */}
+              <Button
+                variant="contained"
+                sx={{ mt: 2 }}
+                onClick={handleReviewSubmit}
+              >
+                Submit Review
+              </Button>
+            </Box>
+          </Box>
         </Box>
       )}
     </Box>

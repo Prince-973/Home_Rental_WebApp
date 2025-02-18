@@ -4,6 +4,7 @@ import ListPage from "./routes/listPage/ListPage";
 import Layout from "./routes/layout/Layout";
 import SinglePage from "./routes/SingalPage/SinglePage";
 import ProfilePage from "./routes/profilePage/ProfilePage";
+import Calander from "./components/calander/Calander";
 function App() {
   const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ function App() {
         {
           path: "/profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "/test",
+          element: <Calander />,
         },
       ],
     },
