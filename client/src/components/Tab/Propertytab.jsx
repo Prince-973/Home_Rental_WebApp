@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Tabs,
   Tab,
@@ -7,12 +7,16 @@ import {
   Rating,
   TextField,
   Button,
+  Pagination,
 } from "@mui/material";
 
 const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [page, setPage] = useState(1); // Pagination state
+
+  const reviewsPerPage = 4; // Number of reviews per page
 
   // Calculate overall rating
   const calculateOverallRating = () => {
@@ -23,20 +27,32 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
 
   const overallRating = calculateOverallRating();
 
+  // Handle tab change
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);
   };
 
+  // Handle page change
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  // Get the reviews to display on the current page
+  const reviewsToDisplay = reviews.slice(
+    (page - 1) * reviewsPerPage,
+    page * reviewsPerPage
+  );
+
   const handleReviewSubmit = () => {
     if (rating > 0 && comment.trim()) {
       const newReview = {
-        name: userData.name,
+        name: userData.name, // Use the current user's name for the review
         rating,
         comment,
       };
-      onAddReview(newReview);
-      setRating(0);
-      setComment("");
+      onAddReview(newReview); // Callback function to handle adding the new review
+      setRating(0); // Reset the rating
+      setComment(""); // Reset the comment
     } else {
       alert("Please provide a rating and comment.");
     }
@@ -92,8 +108,8 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
 
           {/* Individual Reviews */}
           <div className="reviews">
-            {reviews.length > 0 ? (
-              reviews.map((review, index) => (
+            {reviewsToDisplay.length > 0 ? (
+              reviewsToDisplay.map((review, index) => (
                 <Box
                   key={index}
                   sx={{ mb: 2, borderBottom: "1px solid #ddd", pb: 1 }}
@@ -109,6 +125,18 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
               <Typography>No reviews yet.</Typography>
             )}
           </div>
+
+          {/* Pagination */}
+          {reviews.length > reviewsPerPage && (
+            <Box sx={{ mt: 2, display: "flex", justifyContent: "center" }}>
+              <Pagination
+                count={Math.ceil(reviews.length / reviewsPerPage)}
+                page={page}
+                onChange={handlePageChange}
+                color="primary"
+              />
+            </Box>
+          )}
 
           {/* Add New Review Form */}
           <Box sx={{ mt: 3 }}>
