@@ -17,6 +17,11 @@
       overflow-y: scroll;
       padding-bottom: 50px;
     }
+    @include sm {
+      .wrapper {
+        padding-right: 0;
+      }
+    }
   }
   .mapContainer {
     flex: 2;

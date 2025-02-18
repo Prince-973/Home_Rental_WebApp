@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Tabs,
   Tab,
@@ -9,6 +9,7 @@ import {
   Button,
   Pagination,
 } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
 const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -163,10 +164,11 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
               {/* Submit Button */}
               <Button
                 variant="contained"
+                endIcon={<SendIcon />}
                 sx={{ mt: 2 }}
                 onClick={handleReviewSubmit}
               >
-                Submit Review
+                Send
               </Button>
             </Box>
           </Box>

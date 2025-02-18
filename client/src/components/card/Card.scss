@@ -4,12 +4,16 @@
   display: flex;
   gap: 20px;
 
+  @include sm {
+    flex-wrap: wrap;
+  }
+
   .imageContainer {
     flex: 2;
     height: 200px;
 
-    @include md {
-      display: none;
+    @include sm {
+      margin: 0 20px;
     }
 
     img {
@@ -25,6 +29,10 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
+
+    @include sm {
+      margin: 0 20px;
+    }
 
     img {
       width: 16px;

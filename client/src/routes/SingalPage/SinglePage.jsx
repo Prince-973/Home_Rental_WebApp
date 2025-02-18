@@ -50,21 +50,21 @@ function SinglePage() {
           <p className="title">General</p>
           <div className="listVertical">
             <div className="feature">
-              <img src="/utility.png" alt="" />
+              <img src="/utility.png" alt="utility" />
               <div className="featureText">
                 <span>Utilities</span>
                 <p>Renter is responsible</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/pet.png" alt="" />
+              <img src="/pet.png" alt="pet" />
               <div className="featureText">
                 <span>Pet Policy</span>
                 <p>Pets Allowed</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/fee.png" alt="" />
+              <img src="/fee.png" alt="fee" />
               <div className="featureText">
                 <span>Property Fees</span>
                 <p>Must have 3x the rent in total household income</p>
@@ -74,36 +74,36 @@ function SinglePage() {
           <p className="title">Sizes</p>
           <div className="sizes">
             <div className="size">
-              <img src="/size.png" alt="" />
+              <img src="/size.png" alt="size" />
               <span>80 sqft</span>
             </div>
             <div className="size">
-              <img src="/bed.png" alt="" />
+              <img src="/bed.png" alt="bed" />
               <span>2 beds</span>
             </div>
             <div className="size">
-              <img src="/bath.png" alt="" />
+              <img src="/bath.png" alt="bath" />
               <span>1 bathroom</span>
             </div>
           </div>
           <p className="title">Nearby Places</p>
           <div className="listHorizontal">
             <div className="feature">
-              <img src="/school.png" alt="" />
+              <img src="/school.png" alt="school" />
               <div className="featureText">
                 <span>School</span>
                 <p>250m away</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/bus.png" alt="" />
+              <img src="/bus.png" alt="bus" />
               <div className="featureText">
                 <span>Bus Stop</span>
                 <p>100m away</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/restaurant.png" alt="" />
+              <img src="/restaurant.png" alt="restaurant" />
 
               <div className="featureText">
                 <span>Restaurant</span>
@@ -117,11 +117,11 @@ function SinglePage() {
           </div>
           <div className="buttons">
             <button>
-              <img src="/chat.png" alt="" />
+              <img src="/chat.png" alt="chat" />
               Send a Message
             </button>
             <button>
-              <img src="/save.png" alt="" />
+              <img src="/save.png" alt="save" />
               Save the Place
             </button>
           </div>
