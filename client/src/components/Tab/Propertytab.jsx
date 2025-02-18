@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Tabs,
   Tab,
@@ -30,13 +30,13 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const handleReviewSubmit = () => {
     if (rating > 0 && comment.trim()) {
       const newReview = {
-        name: userData.name, // Use the current user's name for the review
+        name: userData.name,
         rating,
         comment,
       };
-      onAddReview(newReview); // Callback function to handle adding the new review
-      setRating(0); // Reset the rating
-      setComment(""); // Reset the comment
+      onAddReview(newReview);
+      setRating(0);
+      setComment("");
     } else {
       alert("Please provide a rating and comment.");
     }

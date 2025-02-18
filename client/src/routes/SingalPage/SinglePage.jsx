@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Map from "../../components/map/Map";
 import Slider from "../../components/slider/Slider";
 import PropertyTabs from "../../components/Tab/Propertytab";
@@ -27,6 +28,10 @@ function SinglePage() {
       comment: "Great value for money. Highly recommended!",
     },
   ];
+  const [reviews1, setReviews] = useState(reviews);
+  const handleAddReview = (newReview) => {
+    setReviews((prevReviews) => [...prevReviews, newReview]);
+  };
   return (
     <div className="singlePage">
       <div className="details">
@@ -34,8 +39,9 @@ function SinglePage() {
           <Slider images={singlePostData.images} />
           <PropertyTabs
             singlePostData={singlePostData}
-            reviews={reviews}
+            reviews={reviews1}
             userData={userData}
+            onAddReview={handleAddReview}
           />
         </div>
       </div>
