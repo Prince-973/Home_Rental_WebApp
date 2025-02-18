@@ -9,7 +9,7 @@ function Navbar() {
       <div className="left">
         <Link href="/" className="logo">
           <img src="/logo.png" alt="" />
-          <span>PriceEstate</span>
+          <span>PrinceEstate</span>
         </Link>
         <Link href="/">Home</Link>
         <Link href="/">About</Link>
