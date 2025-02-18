@@ -14,7 +14,7 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const [page, setPage] = useState(1); // Pagination state
+  const [page, setPage] = useState(1);
 
   const reviewsPerPage = 4; // Number of reviews per page
 
@@ -32,12 +32,10 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
     setActiveTab(newValue);
   };
 
-  // Handle page change
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
-  // Get the reviews to display on the current page
   const reviewsToDisplay = reviews.slice(
     (page - 1) * reviewsPerPage,
     page * reviewsPerPage
@@ -46,13 +44,13 @@ const PropertyTabs = ({ singlePostData, userData, reviews, onAddReview }) => {
   const handleReviewSubmit = () => {
     if (rating > 0 && comment.trim()) {
       const newReview = {
-        name: userData.name, // Use the current user's name for the review
+        name: userData.name,
         rating,
         comment,
       };
-      onAddReview(newReview); // Callback function to handle adding the new review
-      setRating(0); // Reset the rating
-      setComment(""); // Reset the comment
+      onAddReview(newReview);
+      setRating(0);
+      setComment("");
     } else {
       alert("Please provide a rating and comment.");
     }

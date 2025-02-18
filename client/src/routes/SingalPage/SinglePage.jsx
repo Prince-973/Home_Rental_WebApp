@@ -96,14 +96,15 @@ function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src="/pet.png" alt="" />
+              <img src="/bus.png" alt="" />
               <div className="featureText">
                 <span>Bus Stop</span>
                 <p>100m away</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/fee.png" alt="" />
+              <img src="/restaurant.png" alt="" />
+
               <div className="featureText">
                 <span>Restaurant</span>
                 <p>200m away</p>
