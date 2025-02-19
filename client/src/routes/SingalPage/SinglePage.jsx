@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Map from "../../components/map/Map";
-import Slider from "../../components/searchbar/SearchBar";
+import Slider from "../../components/slider/Slider";
 import PropertyTabs from "../../components/Tab/Propertytab";
 import { singlePostData, userData } from "../../lib/dummydata";
 import "./SinglePage.scss";
